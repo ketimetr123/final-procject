@@ -12,8 +12,7 @@ function App() {
   return (
     <Provider store={store}>
       <div className="flex flex-col gap-2">
-        <Collectioncomponent />
-
+        <Main />
         {/* <Routes>
           {" "}
           <Route path="/" element={<Main />} />

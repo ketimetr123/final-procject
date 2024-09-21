@@ -1,7 +1,7 @@
 import React from "react";
 import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
 
-const Header = () => {
+const Header: any = () => {
   return (
     <header className="flex justify-center items-center gap-[80px]">
       {" "}

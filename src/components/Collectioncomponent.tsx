@@ -1,5 +1,5 @@
 import React from "react";
-const Collectioncomponent = () => {
+const Collectioncomponent: any = () => {
   return (
     <div className="h-[440px] bg-[#F6F6F6] flex items-center justify-evenly relative px-5">
       <div className="flex gap-[10px] flex-col">
