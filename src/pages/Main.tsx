@@ -5,6 +5,7 @@ import Collectioncomponent from "../components/Collectioncomponent";
 import Shipping from "../components/Shipping";
 import Tshirts1 from "../components/Tshirts1";
 import Browse from "../components/Browse";
+import Tshirts2 from "../components/Tshirts2";
 
 const Main = () => {
   return (
@@ -15,6 +16,7 @@ const Main = () => {
       <Shipping />
       <Tshirts1 />
       <Browse />
+      <Tshirts2 />
     </>
   );
 };
