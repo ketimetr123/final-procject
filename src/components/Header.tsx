@@ -1,5 +1,7 @@
 import React from "react";
 import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
+import { Link } from "react-router-dom";
+import Main from "../pages/Main";
 
 const Header: any = () => {
   return (
@@ -11,7 +13,7 @@ const Header: any = () => {
       </div>
       <div className="text-[#5C5F6A] gap-[33px] flex">
         <Menu>
-          <button>Home</button>
+          <Link to="/Main">Home</Link>
 
           <MenuButton className="flex items-center">
             Categories

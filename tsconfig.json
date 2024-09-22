@@ -1,18 +1,12 @@
 {
   "compilerOptions": {
     "target": "ES6",
-
     "module": "ESNext",
-
     "strict": true,
-
     "jsx": "react",
-
     "esModuleInterop": true,
-
     "skipLibCheck": true,
     "moduleResolution": "Node"
   },
-
-  "include": ["src/**/*"]
+  "include": ["src/**/*", "node_modules/@types/**/*"]
 }

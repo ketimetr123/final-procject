@@ -1,23 +1,22 @@
 import "./App.css";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, BrowserRouter as Router } from "react-router-dom"; // Added BrowserRouter
 import { store } from "./redux/store";
 import { Provider } from "react-redux";
 import Main from "./pages/Main";
-import Header from "./components/Header";
-import Collectioncomponent from "./components/Collectioncomponent";
-
+import Products from "./pages/Products";
 import React from "react";
 
 function App() {
   return (
     <Provider store={store}>
-      <div className="flex flex-col gap-2">
-        <Main />
-        {/* <Routes>
-          {" "}
-          <Route path="/" element={<Main />} />
-        </Routes> */}
-      </div>
+      <Router>
+        <div className="flex flex-col gap-2">
+          <Routes>
+            <Route path="/main" element={<Main />} />
+            <Route path="/Products" element={<Products />} />
+          </Routes>
+        </div>
+      </Router>
     </Provider>
   );
 }
