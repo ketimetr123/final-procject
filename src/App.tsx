@@ -5,6 +5,7 @@ import { Provider } from "react-redux";
 import Main from "./pages/Main";
 import Products from "./pages/Products";
 import React from "react";
+import Cart from "./pages/Cart";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Routes>
             <Route path="/main" element={<Main />} />
             <Route path="/Products" element={<Products />} />
+            <Route path="/Cart" element={<Cart />} />
           </Routes>
         </div>
       </Router>

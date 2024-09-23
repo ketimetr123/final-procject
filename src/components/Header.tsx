@@ -55,9 +55,9 @@ const Header: any = () => {
         />
       </div>
       <div className="flex gap-[27px]">
-        <button>
+        <Link to="/Cart">
           <img src="/Icon.png" alt="" />
-        </button>
+        </Link>
         <button>
           <img src="/User.png" alt="" />
         </button>

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 const Tshirts2 = () => {
   return (
     <div className="flex flex-col justify-center items-center w-[1092px] mx-auto mt-[120px]">
@@ -13,7 +14,11 @@ const Tshirts2 = () => {
       </div>
       <div className="grid grid-cols-4 gap-[50px] mt-[120px]">
         <div>
-          <img src="/longsleevs.png" className="h-[306px]" alt="" />
+          <Link to="/Products">
+            {" "}
+            <img src="/longsleevs.png" className="h-[306px]" alt="" />
+          </Link>
+
           <p className="mt-[15px]">Classic Monochrome Tees</p>
           <div className="mt-[20px]">
             <span className="border-2 border-[#E6E7E8] rounded-full py-[2px] px-[16px]">
@@ -24,7 +29,10 @@ const Tshirts2 = () => {
         </div>
 
         <div>
-          <img src="/black2sleeves.png" alt="" />
+          <Link to="/Products">
+            <img src="/black2sleeves.png" alt="" />
+          </Link>
+
           <p className="mt-[15px]">Monochromatic Wardrobe</p>
           <div className="mt-[20px]">
             <span className="border-2 border-[#E6E7E8] rounded-full py-[2px] px-[16px]">
@@ -34,7 +42,11 @@ const Tshirts2 = () => {
           </div>
         </div>
         <div>
-          <img src="/black22.png" alt="" />
+          <Link to="/Products">
+            {" "}
+            <img src="/black22.png" alt="" />
+          </Link>
+
           <p className="mt-[15px]">Essential Neutrals</p>
           <div className="mt-[20px]">
             <span className="border-2 border-[#E6E7E8] rounded-full py-[2px] px-[16px]">
@@ -44,7 +56,10 @@ const Tshirts2 = () => {
           </div>
         </div>
         <div>
-          <img src="/mockup2.png" alt="" />
+          <Link to="/Products">
+            <img src="/mockup2.png" alt="" />
+          </Link>
+
           <p className="mt-[15px]">UTRAANET Black</p>
           <div className="mt-[20px]">
             <span className="border-2 border-[#E6E7E8] rounded-full py-[2px] px-[16px]">
