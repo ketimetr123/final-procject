@@ -7,6 +7,7 @@ import Products from "./pages/Products";
 import React from "react";
 import Cart from "./pages/Cart";
 import Checkout from "./pages/Checkout";
+import Afterpaymnet from "./pages/Afterpayment";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
             <Route path="/Products" element={<Products />} />
             <Route path="/Cart" element={<Cart />} />
             <Route path="/Checkout" element={<Checkout />} />
+            <Route path="/Afterpayment" element={<Afterpaymnet />} />
           </Routes>
         </div>
       </Router>

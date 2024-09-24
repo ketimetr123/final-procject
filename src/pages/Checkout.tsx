@@ -101,7 +101,7 @@ const Checkout = () => {
             <span>Total</span>
             <span>$100.00</span>
           </div>
-          <Link to="/Checkout">
+          <Link to="/Afterpayment">
             {" "}
             <button className="w-full bg-[#0E1422] px-[24px] py-[12px] text-white rounded-[4px]">
               Place Order
