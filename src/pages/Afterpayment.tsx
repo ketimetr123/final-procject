@@ -2,6 +2,7 @@ import React from "react";
 import Header from "../components/Header";
 import Discount from "../components/Discount";
 import Footer from "../components/Footer";
+import { Link } from "react-router-dom";
 const Afterpaymnet = () => {
   return (
     <>
@@ -29,10 +30,12 @@ const Afterpaymnet = () => {
             Your order has been successfully placed and is now<br></br> being
             processed.
           </p>
-          <button className="bg-[#0E1422] mt-[50px] text-white rounded-[4px] w-[183px] pl-[12px] py-[12px] flex flex-row items-center gap-[9px]">
-            Go to my account
-            <img src="/rightvector.png" alt="" />
-          </button>
+          <Link to="/Account">
+            <button className="bg-[#0E1422] mt-[50px] text-white rounded-[4px] w-[183px] pl-[12px] py-[12px] flex flex-row items-center gap-[9px]">
+              Go to my account
+              <img src="/rightvector.png" alt="" />
+            </button>
+          </Link>
         </div>
       </div>
 

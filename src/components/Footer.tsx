@@ -1,7 +1,7 @@
 import React from "react";
 const Footer = () => {
   return (
-    <div className="p-[90px] flex flex-col justify-center items-center w-full">
+    <div className="p-[90px] flex flex-col justify-center items-center w-full bg-[#F6F6F6]">
       <footer className="max-w-[1116px]">
         <div className="flex flex-row justify-center gap-[187px] items-center">
           <div>

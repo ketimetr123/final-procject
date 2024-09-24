@@ -8,6 +8,8 @@ import React from "react";
 import Cart from "./pages/Cart";
 import Checkout from "./pages/Checkout";
 import Afterpaymnet from "./pages/Afterpayment";
+import Account from "./pages/Account";
+import Wishlist from "./pages/Wishlist";
 
 function App() {
   return (
@@ -20,6 +22,8 @@ function App() {
             <Route path="/Cart" element={<Cart />} />
             <Route path="/Checkout" element={<Checkout />} />
             <Route path="/Afterpayment" element={<Afterpaymnet />} />
+            <Route path="/Account" element={<Account />} />
+            <Route path="/Wishlist" element={<Wishlist />} />
           </Routes>
         </div>
       </Router>

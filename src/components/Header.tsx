@@ -7,10 +7,14 @@ const Header: any = () => {
   return (
     <header className="flex justify-center items-center gap-[80px]">
       {" "}
-      <div className="flex flex-row gap-[10px] items-center">
-        <img src="/Logomark.png" alt="Ecommerce Logo" />
-        <span className="text-[24px] text-[#0E1422] font-[800]">Ecommerce</span>
-      </div>
+      <Link to="/Main">
+        <div className="flex flex-row gap-[10px] items-center">
+          <img src="/Logomark.png" alt="Ecommerce Logo" />
+          <span className="text-[24px] text-[#0E1422] font-[800]">
+            Ecommerce
+          </span>
+        </div>
+      </Link>
       <div className="text-[#5C5F6A] gap-[33px] flex">
         <Menu>
           <Link to="/Main">Home</Link>
@@ -58,9 +62,12 @@ const Header: any = () => {
         <Link to="/Cart">
           <img src="/Icon.png" alt="" />
         </Link>
-        <button>
-          <img src="/User.png" alt="" />
-        </button>
+        <Link to="/Account">
+          {" "}
+          <button>
+            <img src="/User.png" alt="" />
+          </button>
+        </Link>
       </div>
     </header>
   );
