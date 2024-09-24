@@ -5,6 +5,7 @@ import Footer from "../components/Footer";
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../redux/store";
 import { increment, decrement } from "../redux/app/counterSlice";
+import { Link } from "react-router-dom";
 
 const Cart = () => {
   const count = useSelector((state: RootState) => state.counter.value);
@@ -119,9 +120,12 @@ const Cart = () => {
             <span>Total</span>
             <span>$100.00</span>
           </div>
-          <button className="w-full bg-[#0E1422] px-[24px] py-[12px] text-white rounded-[4px]">
-            Checkout
-          </button>
+          <Link to="/Checkout">
+            {" "}
+            <button className="w-full bg-[#0E1422] px-[24px] py-[12px] text-white rounded-[4px]">
+              Checkout
+            </button>
+          </Link>
         </div>
       </div>
       <Footer />

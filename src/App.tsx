@@ -6,6 +6,7 @@ import Main from "./pages/Main";
 import Products from "./pages/Products";
 import React from "react";
 import Cart from "./pages/Cart";
+import Checkout from "./pages/Checkout";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
             <Route path="/main" element={<Main />} />
             <Route path="/Products" element={<Products />} />
             <Route path="/Cart" element={<Cart />} />
+            <Route path="/Checkout" element={<Checkout />} />
           </Routes>
         </div>
       </Router>
