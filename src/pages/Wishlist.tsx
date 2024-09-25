@@ -34,18 +34,25 @@ const Wishlist = () => {
               Wishlist
               <img src="/Heart.png" alt="" />
             </button>
-            <button className="text-[#5C5F6A] w-full px-[24px] py-[8px] text-[14px] flex gap-[10px] items-center justify-end flex-row-reverse focus:bg-[#F6F6F6] focus:rounded-[8px] focus:px-[24px] focus:py-[8px]">
-              Address
-              <img src="/Delivery.png" alt="" />
-            </button>
-            <button className="text-[#5C5F6A] w-full px-[24px] py-[8px] text-[14px] flex gap-[10px] items-center justify-end flex-row-reverse focus:bg-[#F6F6F6] focus:rounded-[8px] focus:px-[24px] focus:py-[8px]">
-              Password
-              <img src="/Key.png" alt="" />
-            </button>
-            <button className="text-[#5C5F6A] w-full px-[24px] py-[8px] text-[14px] flex gap-[10px] items-center justify-end flex-row-reverse focus:bg-[#F6F6F6] focus:rounded-[8px] focus:px-[24px] focus:py-[8px]">
-              Account
-              <img src="/head.png" alt="" />
-            </button>
+            <Link to="/Address">
+              <button className="text-[#5C5F6A] w-full px-[24px] py-[8px] text-[14px] flex gap-[10px] items-center justify-end flex-row-reverse focus:bg-[#F6F6F6] focus:rounded-[8px] focus:px-[24px] focus:py-[8px]">
+                Address
+                <img src="/Delivery.png" alt="" />
+              </button>
+            </Link>
+            <Link to="/Password">
+              <button className="text-[#5C5F6A] w-full px-[24px] py-[8px] text-[14px] flex gap-[10px] items-center justify-end flex-row-reverse focus:bg-[#F6F6F6] focus:rounded-[8px] focus:px-[24px] focus:py-[8px]">
+                Password
+                <img src="/Key.png" alt="" />
+              </button>
+            </Link>
+            <Link to="/Accountdetails">
+              {" "}
+              <button className="text-[#5C5F6A] w-full px-[24px] py-[8px] text-[14px] flex gap-[10px] items-center justify-end flex-row-reverse focus:bg-[#F6F6F6] focus:rounded-[8px] focus:px-[24px] focus:py-[8px]">
+                Account
+                <img src="/head.png" alt="" />
+              </button>
+            </Link>
             <button className="text-[#5C5F6A] w-full px-[24px] py-[8px] text-[14px] flex gap-[10px] items-center justify-end flex-row-reverse focus:bg-[#F6F6F6] focus:rounded-[8px] focus:px-[24px] focus:py-[8px]">
               Logout
               <img src="/Logout.png" alt="" />

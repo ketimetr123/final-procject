@@ -10,6 +10,9 @@ import Checkout from "./pages/Checkout";
 import Afterpaymnet from "./pages/Afterpayment";
 import Account from "./pages/Account";
 import Wishlist from "./pages/Wishlist";
+import Address from "./pages/Address";
+import Password from "./pages/Password";
+import Accountdetails from "./pages/Accountdetails";
 
 function App() {
   return (
@@ -24,6 +27,9 @@ function App() {
             <Route path="/Afterpayment" element={<Afterpaymnet />} />
             <Route path="/Account" element={<Account />} />
             <Route path="/Wishlist" element={<Wishlist />} />
+            <Route path="/Address" element={<Address />} />
+            <Route path="/Password" element={<Password />} />
+            <Route path="/Accountdetails" element={<Accountdetails />} />
           </Routes>
         </div>
       </Router>
