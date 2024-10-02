@@ -32,14 +32,9 @@ const Header: any = () => {
               ></a>
             </MenuItem>
             <MenuItem>
-              <a className="block data-[focus]:bg-blue-100" href="/support">
-                Support
-              </a>
-            </MenuItem>
-            <MenuItem>
-              <a className="block data-[focus]:bg-blue-100" href="/license">
-                License
-              </a>
+              <Link to="/Listing" className="block data-[focus]:bg-blue-100">
+                Listing
+              </Link>
             </MenuItem>
           </MenuItems>
           <button>Contact</button>

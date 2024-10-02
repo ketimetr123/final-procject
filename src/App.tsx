@@ -13,6 +13,7 @@ import Wishlist from "./pages/Wishlist";
 import Address from "./pages/Address";
 import Password from "./pages/Password";
 import Accountdetails from "./pages/Accountdetails";
+import Listing from "./pages/Listing";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
             <Route path="/Address" element={<Address />} />
             <Route path="/Password" element={<Password />} />
             <Route path="/Accountdetails" element={<Accountdetails />} />
+            <Route path="/Listing" element={<Listing />} />
           </Routes>
         </div>
       </Router>
