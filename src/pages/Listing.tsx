@@ -260,11 +260,11 @@ const Listing: React.FC = () => {
             >
               Price
             </label>
-            <div className="flex items-center space-x-4">
+            <div className="flex items-center space-x-4 w-[200px]">
               <input
                 id="price-range"
                 type="range"
-                min="100"
+                min="10"
                 max="1000"
                 value={price}
                 onChange={handlePriceChange}

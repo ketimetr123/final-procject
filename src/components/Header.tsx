@@ -32,7 +32,10 @@ const Header: any = () => {
               ></a>
             </MenuItem>
             <MenuItem>
-              <Link to="/Listing" className="block data-[focus]:bg-blue-100">
+              <Link
+                to="/Listing"
+                className="block data-[focus]:bg-blue-100 p-[10px] text-[#5C5F6A]"
+              >
                 Listing
               </Link>
             </MenuItem>
