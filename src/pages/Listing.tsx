@@ -5,6 +5,8 @@ import Footer from "../components/Footer";
 import { Interface } from "readline";
 import ProductCard from "../components/ProductCard";
 import { Field, Radio, RadioGroup } from "@headlessui/react";
+import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Listing: React.FC = () => {
   const plans = ["#A3BEF8", "#FFD58A", "#83B18B", "#4078FF"];
@@ -12,6 +14,10 @@ const Listing: React.FC = () => {
   const size = ["S", "M", "X", "XL", "XXL"];
   let [selected1, setSelected1] = useState(size[0]);
   const [price, setPrice] = useState(890);
+  const [currentPage, setCurrentPage] = useState(1); //პირველ ფეიჯზე რომ დარჩეს
+  const ITEMS_PER_PAGE = 9; //რამდენი აითემი მინდა რომ ფეიჯზე განთავსდეს
+
+  const handlePageChange = (page: number) => setCurrentPage(page); // ფეიჯ ჩეინჯი რომ მოხდეს
 
   const handlePriceChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setPrice(Number(event.target.value));
@@ -80,7 +86,216 @@ const Listing: React.FC = () => {
       price: "$35.00",
       status: "IN STOCK",
     },
+    {
+      id: 10,
+      name: "Classic Monochrome Tees",
+      imageUrl: "/tshirt9.png",
+      price: "$35.00",
+      status: "IN STOCK",
+    },
+    {
+      id: 11,
+      name: "Classic Monochrome Tees",
+      imageUrl: "/tshirt8.png",
+      price: "$35.00",
+      status: "IN STOCK",
+    },
+    {
+      id: 12,
+      name: "Classic Monochrome Tees",
+      imageUrl: "/tshirt7.png",
+      price: "$35.00",
+      status: "IN STOCK",
+    },
+    {
+      id: 13,
+      name: "Classic Monochrome Tees",
+      imageUrl: "/tshirt6.png",
+      price: "$35.00",
+      status: "IN STOCK",
+    },
+    {
+      id: 14,
+      name: "Classic Monochrome Tees",
+      imageUrl: "/tshirt5.png",
+      price: "$35.00",
+      status: "IN STOCK",
+    },
+    {
+      id: 15,
+      name: "Classic Monochrome Tees",
+      imageUrl: "/tshirt4.png",
+      price: "$35.00",
+      status: "IN STOCK",
+    },
+    {
+      id: 16,
+      name: "Classic Monochrome Tees",
+      imageUrl: "/tshirt3.png",
+      price: "$35.00",
+      status: "IN STOCK",
+    },
+    {
+      id: 17,
+      name: "Classic Monochrome Tees",
+      imageUrl: "/tshirt2.png",
+      price: "$35.00",
+      status: "IN STOCK",
+    },
+    {
+      id: 18,
+      name: "Classic Monochrome Tees",
+      imageUrl: "/tshirt1.png",
+      price: "$35.00",
+      status: "IN STOCK",
+    },
+    {
+      id: 19,
+      name: "Classic Monochrome Tees",
+      imageUrl: "/tshirt9.png",
+      price: "$35.00",
+      status: "IN STOCK",
+    },
+    {
+      id: 20,
+      name: "Classic Monochrome Tees",
+      imageUrl: "/tshirt1.png",
+      price: "$35.00",
+      status: "IN STOCK",
+    },
+    {
+      id: 21,
+      name: "Classic Monochrome Tees",
+      imageUrl: "/tshirt2.png",
+      price: "$35.00",
+      status: "IN STOCK",
+    },
+    {
+      id: 22,
+      name: "Classic Monochrome Tees",
+      imageUrl: "/tshirt3.png",
+      price: "$35.00",
+      status: "IN STOCK",
+    },
+    {
+      id: 23,
+      name: "Classic Monochrome Tees",
+      imageUrl: "/tshirt4.png",
+      price: "$35.00",
+      status: "IN STOCK",
+    },
+    {
+      id: 24,
+      name: "Classic Monochrome Tees",
+      imageUrl: "/tshirt5.png",
+      price: "$35.00",
+      status: "IN STOCK",
+    },
+    {
+      id: 25,
+      name: "Classic Monochrome Tees",
+      imageUrl: "/tshirt6.png",
+      price: "$35.00",
+      status: "IN STOCK",
+    },
+    {
+      id: 26,
+      name: "Classic Monochrome Tees",
+      imageUrl: "/tshirt7.png",
+      price: "$35.00",
+      status: "IN STOCK",
+    },
+    {
+      id: 27,
+      name: "Classic Monochrome Tees",
+      imageUrl: "/tshirt8.png",
+      price: "$35.00",
+      status: "IN STOCK",
+    },
+    {
+      id: 28,
+      name: "Classic Monochrome Tees",
+      imageUrl: "/tshirt9.png",
+      price: "$35.00",
+      status: "IN STOCK",
+    },
+    {
+      id: 29,
+      name: "Classic Monochrome Tees",
+      imageUrl: "/tshirt9.png",
+      price: "$35.00",
+      status: "IN STOCK",
+    },
+    {
+      id: 30,
+      name: "Classic Monochrome Tees",
+      imageUrl: "/tshirt8.png",
+      price: "$35.00",
+      status: "IN STOCK",
+    },
+    {
+      id: 31,
+      name: "Classic Monochrome Tees",
+      imageUrl: "/tshirt7.png",
+      price: "$35.00",
+      status: "IN STOCK",
+    },
+    {
+      id: 32,
+      name: "Classic Monochrome Tees",
+      imageUrl: "/tshirt6.png",
+      price: "$35.00",
+      status: "IN STOCK",
+    },
+    {
+      id: 33,
+      name: "Classic Monochrome Tees",
+      imageUrl: "/tshirt5.png",
+      price: "$35.00",
+      status: "IN STOCK",
+    },
+    {
+      id: 34,
+      name: "Classic Monochrome Tees",
+      imageUrl: "/tshirt4.png",
+      price: "$35.00",
+      status: "IN STOCK",
+    },
+    {
+      id: 35,
+      name: "Classic Monochrome Tees",
+      imageUrl: "/tshirt3.png",
+      price: "$35.00",
+      status: "IN STOCK",
+    },
+    {
+      id: 36,
+      name: "Classic Monochrome Tees",
+      imageUrl: "/tshirt2.png",
+      price: "$35.00",
+      status: "IN STOCK",
+    },
+    {
+      id: 37,
+      name: "Classic Monochrome Tees",
+      imageUrl: "/tshirt1.png",
+      price: "$35.00",
+      status: "IN STOCK",
+    },
+    {
+      id: 38,
+      name: "Classic Monochrome Tees",
+      imageUrl: "/tshirt9.png",
+      price: "$35.00",
+      status: "IN STOCK",
+    },
   ];
+  const totalPages = Math.ceil(products.length / ITEMS_PER_PAGE); // ფეიჯების რაოდენობა რომ გამოვთვალო
+  const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+  const currentProducts = products.slice(
+    startIndex,
+    startIndex + ITEMS_PER_PAGE
+  );
 
   return (
     <>
@@ -276,11 +491,29 @@ const Listing: React.FC = () => {
             </div>
           </div>
         </div>
-        <div className="grid grid-cols-3 gap-6">
-          {products.map((product) => (
-            <ProductCard key={product.id} product={product} />
-          ))}
-        </div>
+        <Link to="/Products">
+          <div className="grid grid-cols-3 gap-6">
+            {currentProducts.map((product) => (
+              <ProductCard key={product.id} product={product} />
+            ))}
+          </div>
+        </Link>
+      </div>
+
+      <div className="flex w-fit justify-center mx-auto rounded-[4px] border-2 border-[#E9E9EB] p-[8px] gap-[8px]">
+        <img src="/leftcrs.png" alt="" />
+        {Array.from({ length: totalPages }, (_, index) => (
+          <button
+            key={index + 1}
+            onClick={() => handlePageChange(index + 1)}
+            className={`mx-1 px-3 py-1 border rounded focus:bg-[#F6F6F6] ${
+              currentPage === index + 1
+            }`}
+          >
+            {index + 1}
+          </button>
+        ))}
+        <img src="/rightcrs.png" alt="" />
       </div>
 
       <Footer />

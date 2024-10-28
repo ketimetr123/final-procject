@@ -19,7 +19,7 @@ const Header: any = () => {
         <Menu>
           <Link to="/Main">Home</Link>
 
-          <MenuButton className="flex items-center">
+          <MenuButton className="flex items-center focus:transition duration-700">
             Categories
             <img src="/Chevron Down.png" alt="" />
           </MenuButton>
@@ -34,13 +34,13 @@ const Header: any = () => {
             <MenuItem>
               <Link
                 to="/Listing"
-                className="block data-[focus]:bg-blue-100 p-[10px] text-[#5C5F6A]"
+                className="block data-[focus]:bg-gray-100 p-[10px] text-[black] "
               >
                 Listing
               </Link>
             </MenuItem>
           </MenuItems>
-          <button>Contact</button>
+          <Link to="/About">Contact</Link>
           <button>About</button>
         </Menu>
       </div>
