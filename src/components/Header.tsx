@@ -4,10 +4,11 @@ import { Link } from "react-router-dom";
 import Main from "../pages/Main";
 
 const Header: any = () => {
+  const SearchListing = () => {};
   return (
     <header className="flex justify-center items-center gap-[80px]">
       {" "}
-      <Link to="/Main">
+      <Link to="/">
         <div className="flex flex-row gap-[10px] items-center">
           <img src="/Logomark.png" alt="Ecommerce Logo" />
           <span className="text-[24px] text-[#0E1422] font-[800]">
@@ -17,7 +18,7 @@ const Header: any = () => {
       </Link>
       <div className="text-[#5C5F6A] gap-[33px] flex">
         <Menu>
-          <Link to="/Main">Home</Link>
+          <Link to="/">Home</Link>
 
           <MenuButton className="flex items-center focus:transition duration-700">
             Categories

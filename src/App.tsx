@@ -22,7 +22,7 @@ function App() {
       <Router>
         <div className="flex flex-col gap-2">
           <Routes>
-            <Route path="/main" element={<Main />} />
+            <Route path="/" element={<Main />} />
             <Route path="/Products" element={<Products />} />
             <Route path="/Cart" element={<Cart />} />
             <Route path="/Checkout" element={<Checkout />} />
