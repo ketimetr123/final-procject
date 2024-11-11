@@ -9,6 +9,7 @@ const Login = () => {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+
   const onSubmitForm = (e: any) => {
     e.preventDefault();
     setIsLoading(true);
@@ -26,7 +27,7 @@ const Login = () => {
       .then((res) => res.json())
       .then((json) => {
         Cookies.set("AccessToken", json.token);
-        setIsLoading(true);
+        setIsLoading(false);
         alert("You have logged in successfully");
       })
       .catch((err) => {
@@ -58,7 +59,7 @@ const Login = () => {
           <div className="max-w-[212px]">
             <Link to="/login">
               <button className="text-[#5C5F6A] w-full px-[24px] py-[8px] text-[14px] flex gap-[10px] items-center justify-end flex-row-reverse focus:bg-[#F6F6F6] focus:rounded-[8px] focus:px-[24px] focus:py-[8px]">
-                Login
+                Sign up
                 <img src="/Logout.png" alt="" />
               </button>
             </Link>
@@ -102,13 +103,11 @@ const Login = () => {
           </div>
           <div className="w-[1px] h-[490px] bg-[#E6E7E8]"></div>
           <div>
-            <div className="bg-slate-100 rounded-md p-4 mt-12">
-              <h1 className="text-center text-xl font-bold">Sign In</h1>
+            <div className="rounded-md p-4 mt-12">
+              <h1 className="text-center text-xl font-bold">Sign up</h1>
               <form onSubmit={onSubmitForm}>
                 <div className="mb-4">
-                  <label htmlFor="username" className="block">
-                    UserName
-                  </label>
+                  <label htmlFor="username">UserName</label>
                   <input
                     type="text"
                     onChange={onUserNameChange}
@@ -117,9 +116,7 @@ const Login = () => {
                 </div>
 
                 <div className="mb-4">
-                  <label htmlFor="password" className="block">
-                    Password
-                  </label>
+                  <label htmlFor="password">Password</label>
                   <input
                     type="password"
                     onChange={onPasswordChange}
@@ -131,7 +128,7 @@ const Login = () => {
                   type="submit"
                   className="w-full bg-slate-500 text-white p-2 rounded-md"
                 >
-                  {isLoading ? "Loading..." : "Sign In"}
+                  {isLoading ? "Loading..." : "Sign Up"}
                 </button>
               </form>
             </div>

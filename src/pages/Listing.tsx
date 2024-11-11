@@ -24,8 +24,6 @@ const Listing: React.FC = () => {
     console.log(page);
     navigate(`/Listing?page=${page}`);
     setCurrentPage(page);
-
-    products();
   }; // ფეიჯ ჩეინჯი რომ მოხდეს
 
   const handlePriceChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -35,10 +33,7 @@ const Listing: React.FC = () => {
 
   const products: any = async () => {
     try {
-      const res = await fetch(
-        `https://fakestoreapi.com/products?limit=9&offset=${currentPage}`
-      );
-
+      const res = await fetch(`https://fakestoreapi.com/products`);
       const data: any = await res.json();
       setApiData(data);
       console.log(data);
@@ -270,7 +265,7 @@ const Listing: React.FC = () => {
         </div>
         <Link to="/Products">
           <div className="grid grid-cols-3 gap-6">
-            {apiData.map((item: any) => (
+            {currentProducts.map((item: any) => (
               <ProductCard key={item.id} product={item} />
             ))}
           </div>
@@ -279,12 +274,12 @@ const Listing: React.FC = () => {
 
       <div className="flex w-fit justify-center mx-auto rounded-[4px] border-2 border-[#E9E9EB] p-[8px] gap-[8px]">
         <img src="/leftcrs.png" alt="" />
-        {Array.from({ length: 9 }, (_, index) => (
+        {Array.from({ length: totalPages }, (_, index) => (
           <button
             key={index + 1}
             onClick={() => handlePageChange(index + 1)}
             className={`mx-1 px-3 py-1 border rounded focus:bg-[#F6F6F6] ${
-              currentPage === index + 1
+              currentPage === index + 1 ? "bg-[#F6F6F6]" : ""
             }`}
           >
             {index + 1}
