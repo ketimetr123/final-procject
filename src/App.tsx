@@ -15,6 +15,7 @@ import Password from "./pages/Password";
 import Accountdetails from "./pages/Accountdetails";
 import Listing from "./pages/Listing";
 import About from "./pages/About";
+import Login from "./pages/Login";
 
 function App() {
   return (
@@ -23,18 +24,19 @@ function App() {
         <div className="flex flex-col gap-2">
           <Routes>
             <Route path="/" element={<Main />} />
-            <Route path="/Products" element={<Products />} />
-            <Route path="/Cart" element={<Cart />} />
-            <Route path="/Checkout" element={<Checkout />} />
-            <Route path="/Afterpayment" element={<Afterpaymnet />} />
-            <Route path="/Account" element={<Account />} />
-            <Route path="/Wishlist" element={<Wishlist />} />
-            <Route path="/Address" element={<Address />} />
-            <Route path="/Password" element={<Password />} />
-            <Route path="/Accountdetails" element={<Accountdetails />} />
-            <Route path="/Listing" element={<Listing />} />
-            <Route path="/Listing/:category" element={<Listing />} />
-            <Route path="/About" element={<About />} />
+            <Route path="/products" element={<Products />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/checkout" element={<Checkout />} />
+            <Route path="/afterpayment" element={<Afterpaymnet />} />
+            <Route path="/account" element={<Account />} />
+            <Route path="/wishlist" element={<Wishlist />} />
+            <Route path="/address" element={<Address />} />
+            <Route path="/password" element={<Password />} />
+            <Route path="/accountdetails" element={<Accountdetails />} />
+            <Route path="/listing" element={<Listing />} />
+            <Route path="/listing/:category" element={<Listing />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/login" element={<Login />} />
           </Routes>
         </div>
       </Router>

@@ -21,6 +21,10 @@ const Accountdetails = () => {
         <div className="max-w-[1116px] flex items-center justify-evenly p-[50px] mx-auto">
           <div className="max-w-[212px]">
             <button className="text-[#5C5F6A] w-full px-[24px] py-[8px] text-[14px] flex gap-[10px] items-center justify-end flex-row-reverse focus:bg-[#F6F6F6] focus:rounded-[8px] focus:px-[24px] focus:py-[8px]">
+              Login
+              <img src="/Logout.png" alt="" />
+            </button>
+            <button className="text-[#5C5F6A] w-full px-[24px] py-[8px] text-[14px] flex gap-[10px] items-center justify-end flex-row-reverse focus:bg-[#F6F6F6] focus:rounded-[8px] focus:px-[24px] focus:py-[8px]">
               Orders
               <img src="/Icon.png" alt="" />
             </button>
