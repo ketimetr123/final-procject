@@ -1,10 +1,38 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Main from "../pages/Main";
+import { useNavigate } from "react-router-dom";
 
 const Header: any = () => {
-  const SearchListing = () => {};
+  const [value, setValue] = useState("");
+  const navigate = useNavigate();
+  const [categoriesAPI, setCategories] = useState([]);
+
+  const getCategories = async () => {
+    try {
+      const res = await fetch("https://fakestoreapi.com/products/categories");
+      const data: any = await res.json();
+      setCategories(data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  useEffect(() => {
+    getCategories();
+  }, []);
+
+  const onChangeInput = (e: any) => {
+    setValue(e.target.value);
+  };
+
+  const SearchListing = (e: any) => {
+    e.preventDefault();
+
+    navigate(`/Listing?search=${value}`);
+  };
+
   return (
     <header className="flex justify-center items-center gap-[80px]">
       {" "}
@@ -25,29 +53,39 @@ const Header: any = () => {
             <img src="/Chevron Down.png" alt="" />
           </MenuButton>
 
-          <MenuItems anchor="bottom">
-            <MenuItem>
-              <a
-                className="block data-[focus]:bg-blue-100"
-                href="/settings"
-              ></a>
-            </MenuItem>
-            <MenuItem>
-              <Link
-                to="/Listing"
-                className="block data-[focus]:bg-gray-100 p-[10px] text-[black] "
-              >
-                Listing
-              </Link>
-            </MenuItem>
+          <MenuItems
+            anchor="bottom"
+            className="bg-white px-2 py-3 rounded-xl shadow-xl"
+          >
+            <Link
+              to="/Listing"
+              className="block data-[focus]:bg-gray-100 p-[10px] text-[black] "
+            >
+              Listing
+            </Link>
+
+            {categoriesAPI.map((category) => (
+              <MenuItem key={category}>
+                <Link
+                  key={7}
+                  to={`/Listing/${category}`}
+                  className="block data-[focus]:bg-gray-100 p-[10px] text-[black]"
+                >
+                  {category}
+                </Link>
+              </MenuItem>
+            ))}
           </MenuItems>
+
           <Link to="/About">Contact</Link>
           <button>About</button>
         </Menu>
       </div>
-      <div className="relative">
+      <form onSubmit={SearchListing} className="relative">
         <input
           type="text"
+          value={value}
+          onChange={onChangeInput}
           placeholder="Search products"
           className="border border-[#E6E7E8] py-[10px] pl-[40px] pr-[15px] w-[264px] rounded-md focus:outline-none"
         />
@@ -56,7 +94,7 @@ const Header: any = () => {
           alt=""
           className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5"
         />
-      </div>
+      </form>
       <div className="flex gap-[27px]">
         <Link to="/Cart">
           <img src="/Icon.png" alt="" />

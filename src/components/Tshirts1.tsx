@@ -28,10 +28,10 @@ const Tshirts1 = () => {
         {apiData.map((item: any) => (
           <div
             key={item.id}
-            className="bg-[#F6F6F6] py-[10px] px-[15px] rounded-xl flex flex-col justify-center"
+            className="bg-[#F6F6F6] py-[10px] px-[15px] h-[420px] rounded-xl flex flex-col justify-between"
           >
             <Link to="/Products">
-              <img src={item.image} className="mx-auto" alt="" />
+              <img src={item.image} className="mx-auto h-[293px]" alt="" />
             </Link>
 
             <p className="mt-[15px]">{item.title}</p>

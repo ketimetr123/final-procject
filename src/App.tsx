@@ -33,6 +33,7 @@ function App() {
             <Route path="/Password" element={<Password />} />
             <Route path="/Accountdetails" element={<Accountdetails />} />
             <Route path="/Listing" element={<Listing />} />
+            <Route path="/Listing/:category" element={<Listing />} />
             <Route path="/About" element={<About />} />
           </Routes>
         </div>
