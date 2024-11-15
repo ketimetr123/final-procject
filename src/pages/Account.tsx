@@ -3,6 +3,8 @@ import Header from "../components/Header";
 import Discount from "../components/Discount";
 import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
+import { deleteToke } from "../hooks/logout";
+
 const Account = () => {
   return (
     <>
@@ -24,15 +26,18 @@ const Account = () => {
           <div className="max-w-[212px]">
             <Link to="/login">
               <button className="text-[#5C5F6A] w-full px-[24px] py-[8px] text-[14px] flex gap-[10px] items-center justify-end flex-row-reverse focus:bg-[#F6F6F6] focus:rounded-[8px] focus:px-[24px] focus:py-[8px]">
-                Login
+                Sign up
                 <img src="/Logout.png" alt="" />
               </button>
             </Link>
 
-            <button className="text-[#5C5F6A] w-full px-[24px] py-[8px] text-[14px] flex gap-[10px] items-center justify-end flex-row-reverse focus:bg-[#F6F6F6] focus:rounded-[8px] focus:px-[24px] focus:py-[8px]">
-              Orders
-              <img src="/Icon.png" alt="" />
-            </button>
+            <Link to="/Account">
+              {" "}
+              <button className="text-[#5C5F6A] w-full px-[24px] py-[8px] text-[14px] flex gap-[10px] items-center justify-end flex-row-reverse focus:bg-[#F6F6F6] focus:rounded-[8px] focus:px-[24px] focus:py-[8px]">
+                Orders
+                <img src="/Icon.png" alt="" />
+              </button>
+            </Link>
             <Link to="/Wishlist">
               {" "}
               <button className="text-[#5C5F6A] w-full px-[24px] py-[8px] text-[14px] flex gap-[10px] items-center justify-end flex-row-reverse focus:bg-[#F6F6F6] focus:rounded-[8px] focus:px-[24px] focus:py-[8px]">
@@ -61,13 +66,16 @@ const Account = () => {
               </button>
             </Link>
 
-            <button className="text-[#5C5F6A] w-full px-[24px] py-[8px] text-[14px] flex gap-[10px] items-center justify-end flex-row-reverse focus:bg-[#F6F6F6] focus:rounded-[8px] focus:px-[24px] focus:py-[8px]">
+            <button
+              onClick={deleteToke}
+              className="text-[#5C5F6A] w-full px-[24px] py-[8px] text-[14px] flex gap-[10px] items-center justify-end flex-row-reverse focus:bg-[#F6F6F6] focus:rounded-[8px] focus:px-[24px] focus:py-[8px]"
+            >
               Logout
               <img src="/Logout.png" alt="" />
             </button>
           </div>
           <div className="w-[1px] h-[490px] bg-[#E6E7E8]"></div>
-          <div className="flex flex-col gap-[40px]">
+          <div className="flex flex-col gap-[40px] w-[534px]">
             <h3>Your cart</h3>
             <div className="flex flex-row items-center gap-[10px]">
               <img src="/ltl.png" alt="" />

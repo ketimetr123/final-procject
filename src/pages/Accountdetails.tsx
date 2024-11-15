@@ -3,6 +3,7 @@ import Discount from "../components/Discount";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
+import { deleteToke } from "../hooks/logout";
 const Accountdetails = () => {
   return (
     <>
@@ -20,14 +21,20 @@ const Accountdetails = () => {
       <div className="w-full ">
         <div className="max-w-[1116px] flex items-center justify-evenly p-[50px] mx-auto">
           <div className="max-w-[212px]">
-            <button className="text-[#5C5F6A] w-full px-[24px] py-[8px] text-[14px] flex gap-[10px] items-center justify-end flex-row-reverse focus:bg-[#F6F6F6] focus:rounded-[8px] focus:px-[24px] focus:py-[8px]">
-              Login
-              <img src="/Logout.png" alt="" />
-            </button>
-            <button className="text-[#5C5F6A] w-full px-[24px] py-[8px] text-[14px] flex gap-[10px] items-center justify-end flex-row-reverse focus:bg-[#F6F6F6] focus:rounded-[8px] focus:px-[24px] focus:py-[8px]">
-              Orders
-              <img src="/Icon.png" alt="" />
-            </button>
+            <Link to="/login">
+              <button className="text-[#5C5F6A] w-full px-[24px] py-[8px] text-[14px] flex gap-[10px] items-center justify-end flex-row-reverse focus:bg-[#F6F6F6] focus:rounded-[8px] focus:px-[24px] focus:py-[8px]">
+                Sign up
+                <img src="/Logout.png" alt="" />
+              </button>
+            </Link>
+            <Link to="/Account">
+              {" "}
+              <button className="text-[#5C5F6A] w-full px-[24px] py-[8px] text-[14px] flex gap-[10px] items-center justify-end flex-row-reverse focus:bg-[#F6F6F6] focus:rounded-[8px] focus:px-[24px] focus:py-[8px]">
+                Orders
+                <img src="/Icon.png" alt="" />
+              </button>
+            </Link>
+
             <Link to="/Wishlist">
               {" "}
               <button className="text-[#5C5F6A] w-full px-[24px] py-[8px] text-[14px] flex gap-[10px] items-center justify-end flex-row-reverse focus:bg-[#F6F6F6] focus:rounded-[8px] focus:px-[24px] focus:py-[8px]">
@@ -55,7 +62,10 @@ const Accountdetails = () => {
               </button>
             </Link>
 
-            <button className="text-[#5C5F6A] w-full px-[24px] py-[8px] text-[14px] flex gap-[10px] items-center justify-end flex-row-reverse focus:bg-[#F6F6F6] focus:rounded-[8px] focus:px-[24px] focus:py-[8px]">
+            <button
+              onClick={deleteToke}
+              className="text-[#5C5F6A] w-full px-[24px] py-[8px] text-[14px] flex gap-[10px] items-center justify-end flex-row-reverse focus:bg-[#F6F6F6] focus:rounded-[8px] focus:px-[24px] focus:py-[8px]"
+            >
               Logout
               <img src="/Logout.png" alt="" />
             </button>
@@ -63,7 +73,7 @@ const Accountdetails = () => {
           <div className="w-[1px] h-[490px] bg-[#E6E7E8]"></div>
           <form
             action=""
-            className="max-w-[534px] text-[#474B57] flex flex-col gap-[20px] text-[14px]"
+            className="w-[534px] text-[#474B57] flex flex-col gap-[20px] text-[14px]"
           >
             <div className="mb-[20px]">
               <h3 className="text-[#0E1422] text-[14px] font-[600]">
@@ -73,7 +83,7 @@ const Accountdetails = () => {
             </div>
 
             <div className="flex flex-row gap-[16px]">
-              <div>
+              <div className=" w-full">
                 <label htmlFor="">Full name</label>
                 <input
                   type="text"

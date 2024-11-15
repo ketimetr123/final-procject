@@ -5,6 +5,7 @@ import Discount from "../components/Discount";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
+import { deleteToke } from "../hooks/logout";
 const Login = () => {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
@@ -50,7 +51,7 @@ const Login = () => {
         <div className="flex gap-[10px] items-center flex-row">
           <span className="text-[#5C5F6A] text-[14px]">Ecommerce</span>
           <img src="Chevron Right.png" alt="" />
-          <span className="text-[#0E1422] text-[14px]">Sign in</span>
+          <span className="text-[#0E1422] text-[14px]">Sign up</span>
         </div>
       </div>
       <div className="w-full ">
@@ -64,10 +65,13 @@ const Login = () => {
               </button>
             </Link>
 
-            <button className="text-[#5C5F6A] w-full px-[24px] py-[8px] text-[14px] flex gap-[10px] items-center justify-end flex-row-reverse focus:bg-[#F6F6F6] focus:rounded-[8px] focus:px-[24px] focus:py-[8px]">
-              Orders
-              <img src="/Icon.png" alt="" />
-            </button>
+            <Link to="/Account">
+              {" "}
+              <button className="text-[#5C5F6A] w-full px-[24px] py-[8px] text-[14px] flex gap-[10px] items-center justify-end flex-row-reverse focus:bg-[#F6F6F6] focus:rounded-[8px] focus:px-[24px] focus:py-[8px]">
+                Orders
+                <img src="/Icon.png" alt="" />
+              </button>
+            </Link>
             <Link to="/Wishlist">
               {" "}
               <button className="text-[#5C5F6A] w-full px-[24px] py-[8px] text-[14px] flex gap-[10px] items-center justify-end flex-row-reverse focus:bg-[#F6F6F6] focus:rounded-[8px] focus:px-[24px] focus:py-[8px]">
@@ -96,13 +100,16 @@ const Login = () => {
               </button>
             </Link>
 
-            <button className="text-[#5C5F6A] w-full px-[24px] py-[8px] text-[14px] flex gap-[10px] items-center justify-end flex-row-reverse focus:bg-[#F6F6F6] focus:rounded-[8px] focus:px-[24px] focus:py-[8px]">
+            <button
+              onClick={deleteToke}
+              className="text-[#5C5F6A] w-full px-[24px] py-[8px] text-[14px] flex gap-[10px] items-center justify-end flex-row-reverse focus:bg-[#F6F6F6] focus:rounded-[8px] focus:px-[24px] focus:py-[8px]"
+            >
               Logout
               <img src="/Logout.png" alt="" />
             </button>
           </div>
           <div className="w-[1px] h-[490px] bg-[#E6E7E8]"></div>
-          <div>
+          <div className="w-[526px]">
             <div className="rounded-md p-4 mt-12">
               <h1 className="text-center text-xl font-bold">Sign up</h1>
               <form onSubmit={onSubmitForm}>
@@ -126,7 +133,7 @@ const Login = () => {
 
                 <button
                   type="submit"
-                  className="w-full bg-slate-500 text-white p-2 rounded-md"
+                  className="w-full bg-slate-100 text-slate-500 p-2 rounded-md"
                 >
                   {isLoading ? "Loading..." : "Sign Up"}
                 </button>

@@ -3,6 +3,7 @@ import Discount from "../components/Discount";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
+import { deleteToke } from "../hooks/logout";
 const Password = () => {
   return (
     <>
@@ -20,14 +21,19 @@ const Password = () => {
       <div className="w-full ">
         <div className="max-w-[1116px] flex items-center justify-evenly p-[50px] mx-auto">
           <div className="max-w-[212px]">
-          <button className="text-[#5C5F6A] w-full px-[24px] py-[8px] text-[14px] flex gap-[10px] items-center justify-end flex-row-reverse focus:bg-[#F6F6F6] focus:rounded-[8px] focus:px-[24px] focus:py-[8px]">
-              Login
-              <img src="/Logout.png" alt="" />
-            </button>
-            <button className="text-[#5C5F6A] w-full px-[24px] py-[8px] text-[14px] flex gap-[10px] items-center justify-end flex-row-reverse focus:bg-[#F6F6F6] focus:rounded-[8px] focus:px-[24px] focus:py-[8px]">
-              Orders
-              <img src="/Icon.png" alt="" />
-            </button>
+            <Link to="/login">
+              <button className="text-[#5C5F6A] w-full px-[24px] py-[8px] text-[14px] flex gap-[10px] items-center justify-end flex-row-reverse focus:bg-[#F6F6F6] focus:rounded-[8px] focus:px-[24px] focus:py-[8px]">
+                Sign up
+                <img src="/Logout.png" alt="" />
+              </button>
+            </Link>
+            <Link to="/Account">
+              {" "}
+              <button className="text-[#5C5F6A] w-full px-[24px] py-[8px] text-[14px] flex gap-[10px] items-center justify-end flex-row-reverse focus:bg-[#F6F6F6] focus:rounded-[8px] focus:px-[24px] focus:py-[8px]">
+                Orders
+                <img src="/Icon.png" alt="" />
+              </button>
+            </Link>
             <Link to="/Wishlist">
               {" "}
               <button className="text-[#5C5F6A] w-full px-[24px] py-[8px] text-[14px] flex gap-[10px] items-center justify-end flex-row-reverse focus:bg-[#F6F6F6] focus:rounded-[8px] focus:px-[24px] focus:py-[8px]">
@@ -55,7 +61,10 @@ const Password = () => {
                 <img src="/head.png" alt="" />
               </button>
             </Link>
-            <button className="text-[#5C5F6A] w-full px-[24px] py-[8px] text-[14px] flex gap-[10px] items-center justify-end flex-row-reverse focus:bg-[#F6F6F6] focus:rounded-[8px] focus:px-[24px] focus:py-[8px]">
+            <button
+              onClick={deleteToke}
+              className="text-[#5C5F6A] w-full px-[24px] py-[8px] text-[14px] flex gap-[10px] items-center justify-end flex-row-reverse focus:bg-[#F6F6F6] focus:rounded-[8px] focus:px-[24px] focus:py-[8px]"
+            >
               Logout
               <img src="/Logout.png" alt="" />
             </button>

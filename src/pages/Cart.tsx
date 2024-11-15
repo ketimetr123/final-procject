@@ -6,6 +6,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../redux/store";
 import { increment, decrement } from "../redux/app/counterSlice";
 import { Link } from "react-router-dom";
+import { deleteToke } from "../hooks/logout";
 
 const Cart = () => {
   const count = useSelector((state: RootState) => state.counter.value);
