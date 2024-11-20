@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Discount from "../components/Discount";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
@@ -10,6 +10,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { decrement, increment } from "../redux/app/counterSlice";
 import Similarproducts from "../components/Similarproducts";
 import Subscribe from "../components/Subscribe";
+import { useParams } from "react-router-dom";
 
 const Products = () => {
   const plans = ["#A3BEF8", "#FFD58A", "#83B18B"];
@@ -19,15 +20,43 @@ const Products = () => {
   const count = useSelector((state: RootState) => state.counter.value);
   const dispatch = useDispatch();
 
+  const [isLoading, setIsLoading] = useState(false);
+
+  const { id } = useParams<{ id: string }>();
+  const [product, setProduct] = useState<any | null>(null);
+
+  const fetchProducts = async () => {
+    setIsLoading(true);
+    try {
+      const response = await fetch(`https://fakestoreapi.com/products/${id}`);
+      const data = await response.json();
+      setProduct(data);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchProducts();
+  }, [id]);
+
+  if (isLoading || !product) {
+    return <div>Loading Product details..</div>;
+  }
+
+  console.log(product);
+
   return (
     <>
       <Discount />
       <Header />
+
       <div className="flex w-[1092px] mx-auto mr-[210px] mt-[50px] items-center flex-row justify-start">
         <span className="text-[#5C5F6A] text-[14px]">Ecommerce</span>
-        <img src="Chevron Right.png" alt="" />
-        <span className="text-[#0E1422] text-[14px]">Black man t-shirt</span>
       </div>
+
       <div className="flex flex-row items-stretch  justify-center gap-[160px] p-[20px]">
         <Carousel
           className="w-[500px] h-[574px]"
@@ -35,19 +64,19 @@ const Products = () => {
           showThumbs={false}
           showStatus={false}
         >
-          <div>
-            <img src="/black.png" alt="" />
+          <div className="w-[534px] h-[534px]">
+            <img
+              className="w-full object-contain h-full"
+              src={product.image}
+              alt=""
+            />
           </div>
-          <div>
-            <img src="/black.png" alt="" />
-          </div>
-          <div>
-            <img src="/black.png" alt="" />
-          </div>
+          <div></div>
+          <div></div>
         </Carousel>
         <div className="flex flex-col items-star justify-between gap-[20px]">
           <h1 className="text-[#0E1422] text-[24px] font-[700]">
-            Raw Black T-Shirt Lineup
+            <span className="text-[#0E1422] text-[14px]">{product.title}</span>
           </h1>
           <div className="flex flex-row gap-[10px]">
             <span className="bg-[#F6F6F6] border-2 text-[#5C5F6A] border-[#F6F6F6] rounded-full px-[16px] py-[2px] flex flex-row">
@@ -58,7 +87,10 @@ const Products = () => {
               IN STOCK
             </span>
           </div>
-          <h4 className="text-[#0E1422] text-[18px] font-[600]">$75.00</h4>
+          <h4 className="text-[#0E1422] text-[18px] font-[600]">
+            {" "}
+            <p>${product.price}</p>
+          </h4>
           <p className="text-[#5C5F6A] text-[12px]">Available Colors</p>
 
           <RadioGroup

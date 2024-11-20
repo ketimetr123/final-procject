@@ -42,6 +42,7 @@ const Cart = () => {
   useEffect(() => {
     getAllProductsAndUserCaer();
   }, []);
+
   return (
     <>
       {" "}
@@ -100,42 +101,6 @@ const Cart = () => {
               </div>
             </div>
           ))}
-
-          {/* <div className="flex flex-row items-center gap-[10px]">
-            <img src="/wht.png" alt="" />
-            <div>
-              <h3 className="text-[14px] ">Raw Black T-Shirt Lineup</h3>
-              <div className="flex flex-row items-center gap-[5px] text-[#5C5F6A] text-[12px]">
-                <span>Color: </span>
-                <img src="/Circle.png" alt="" />
-                <img src="/—.png" alt="" />
-                <span>Size: M</span>
-              </div>
-            </div>
-            <span className="ml-[100px]">$75.00</span>
-            <div className="w-[107px]">
-              <div className="flex flex-row gap-[15px]  items-center	align-middle justify-evenly	 border-2 border-[#E6E7E8] rounded-[4px] text-[20px] text-center">
-                <button
-                  className="text-[14px] text-[#202533]"
-                  aria-label="Increment value"
-                  onClick={() => dispatch(increment())}
-                >
-                  <img src="/Add.png" alt="" />
-                </button>
-                <span>{count}</span>
-                <button
-                  className="text-[14px] text-[#202533]"
-                  aria-label="Decrement value"
-                  onClick={() => dispatch(decrement())}
-                >
-                  <img src="/plus.png" alt="" />
-                </button>
-              </div>
-            </div>
-            <button>
-              <img src="/Remove.png" alt="" />
-            </button>
-          </div> */}
         </div>
 
         <div className="w-[341px] h-[430px] flex flex-col justify-evenly p-[20px] border-2 border-[#E6E7E8] rounded-[4px]">

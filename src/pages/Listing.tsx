@@ -19,7 +19,7 @@ const Listing: React.FC = () => {
   const ITEMS_PER_PAGE = 9; //რამდენი აითემი მინდა რომ ფეიჯზე განთავსდეს
   const navigate = useNavigate();
   let { category } = useParams();
-
+  let { productId } = useParams();
   const handlePageChange = (page: number) => {
     console.log(page);
     navigate(`/Listing?page=${page}`);
@@ -53,7 +53,17 @@ const Listing: React.FC = () => {
       console.error(error);
     }
   };
-
+  const getproductID = async () => {
+    try {
+      const res = await fetch(
+        `https://fakestoreapi.com/products/${productId}}`
+      );
+      const proId: any = await res.json();
+      setApiData(proId);
+    } catch (error) {
+      console.error(error);
+    }
+  };
   useEffect(() => {
     if (category) {
       getSpacefivCategory();
@@ -61,6 +71,18 @@ const Listing: React.FC = () => {
       products();
     }
   }, [category]);
+  const selectForCart = () => {
+    fetch("https://fakestoreapi.com/carts", {
+      method: "POST",
+      body: JSON.stringify({
+        userId: 5,
+        date: 2020 - 11 - 19,
+        products: [{ productId: 5, quantity: 1 }],
+      }),
+    })
+      .then((res) => res.json())
+      .then((json) => console.log(json));
+  };
 
   const totalPages = Math.ceil(apiData.length / ITEMS_PER_PAGE); // ფეიჯების რაოდენობა რომ გამოვთვალო
   const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
@@ -263,13 +285,18 @@ const Listing: React.FC = () => {
             </div>
           </div>
         </div>
-        <Link to="/Products">
-          <div className="grid grid-cols-3 gap-6">
-            {currentProducts.map((item: any) => (
-              <ProductCard key={item.id} product={item} />
-            ))}
-          </div>
-        </Link>
+
+        <div className="grid grid-cols-3 gap-6">
+          {currentProducts.map((item: any) => (
+            <Link
+              onClick={selectForCart}
+              to={`/Products/${item.id}`}
+              key={item.id}
+            >
+              <ProductCard product={item} />
+            </Link>
+          ))}
+        </div>
       </div>
 
       <div className="flex w-fit justify-center mx-auto rounded-[4px] border-2 border-[#E9E9EB] p-[8px] gap-[8px]">
