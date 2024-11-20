@@ -71,18 +71,7 @@ const Listing: React.FC = () => {
       products();
     }
   }, [category]);
-  const selectForCart = () => {
-    fetch("https://fakestoreapi.com/carts", {
-      method: "POST",
-      body: JSON.stringify({
-        userId: 5,
-        date: 2020 - 11 - 19,
-        products: [{ productId: 5, quantity: 1 }],
-      }),
-    })
-      .then((res) => res.json())
-      .then((json) => console.log(json));
-  };
+ 
 
   const totalPages = Math.ceil(apiData.length / ITEMS_PER_PAGE); // ფეიჯების რაოდენობა რომ გამოვთვალო
   const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
@@ -289,7 +278,7 @@ const Listing: React.FC = () => {
         <div className="grid grid-cols-3 gap-6">
           {currentProducts.map((item: any) => (
             <Link
-              onClick={selectForCart}
+             
               to={`/Products/${item.id}`}
               key={item.id}
             >

@@ -13,9 +13,9 @@ const Cart = () => {
   const count = useSelector((state: RootState) => state.counter.value);
   const dispatch = useDispatch();
   const [products, setProducts] = useState<any[]>([]);
-  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [products1, setProduct1] = useState<any[]>([]);
+  // const [isLoading, setIsLoading] = useState<boolean>(false);
   const getAllProductsAndUserCaer = async () => {
-    setIsLoading(true);
     try {
       //fetch products
       const products_res = await fetch("https://fakestoreapi.com/products");
@@ -35,14 +35,51 @@ const Cart = () => {
       setProducts(cart_products_data);
     } catch (error) {
       console.log(error);
-    } finally {
-      setIsLoading(false);
     }
   };
   useEffect(() => {
     getAllProductsAndUserCaer();
   }, []);
 
+  // კარტაში დამატებას ვცდილობ, არ გამოდის ამ კოდით
+  // const getUserCart5 = async () => {
+  //   try {
+  //     const products_res1 = await fetch("https://fakestoreapi.com/products");
+  //     const products_data1 = await products_res1.json();
+  //     const cart_res1 = await fetch("https://fakestoreapi.com/carts/7");
+  //     const cart_products1 = await cart_res1.json();
+  //     let cart_products_data1: any[] = [];
+  //     for (let index = 0; index < cart_products1.products1.length; index++) {
+  //       const element = cart_products1.products1[index];
+  //       products_data1.find((products1: any) => {
+  //         if (products1.id === element.productId) {
+  //           cart_products_data1.push(products1);
+  //         }
+  //       });
+  //     }
+  //     setProduct1(cart_products_data1);
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  //   fetch("https://fakestoreapi.com/carts/7", {
+  //     method: "PATCH",
+  //     headers: {
+  //       Accept: "application/json",
+  //       "Content-type": "application/json",
+  //     },
+  //     body: JSON.stringify({
+  //       userId: 5,
+  //       date: 2019 - 11 - 19,
+  //       products: [{ productId: 1, quantity: 3 }],
+  //     }),
+  //   })
+  //     .then((res) => res.json())
+  //     .then((json) => console.log(json));
+  // };
+
+  // useEffect(() => {
+  //   getUserCart5();
+  // }, []);
   return (
     <>
       {" "}
@@ -59,7 +96,7 @@ const Cart = () => {
       <div className="flex flex-row items-center gap-[70px] py-[30px]  justify-center">
         <div className="grid grid-row-3 items-center justify-center gap-[30px]">
           <h3>Your cart</h3>
-          {isLoading && <p className="text-bold text-red-600">Loading...</p>}
+
           {products.map((product, index) => (
             <div
               key={index}

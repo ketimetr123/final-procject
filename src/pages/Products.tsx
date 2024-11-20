@@ -11,6 +11,7 @@ import { decrement, increment } from "../redux/app/counterSlice";
 import Similarproducts from "../components/Similarproducts";
 import Subscribe from "../components/Subscribe";
 import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Products = () => {
   const plans = ["#A3BEF8", "#FFD58A", "#83B18B"];
@@ -47,6 +48,23 @@ const Products = () => {
   }
 
   console.log(product);
+  //ვერ გამომაქვს წამოღებული ინფრომაცია კარტაში, არ მესმის როგორ უნდა გადავაქციო ეს რესპონსი აიპიაის რესპონსად
+  const selectForCart = async () => {
+    fetch("https://fakestoreapi.com/carts", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify({
+        userId: 5,
+        date: 2020 - 11 - 19,
+        products: [{ productId: 5, quantity: 1 }],
+      }),
+    })
+      .then((res) => res.json())
+      .then((json) => console.log(json));
+  };
 
   return (
     <>
@@ -159,9 +177,15 @@ const Products = () => {
               </button>
             </div>
             <div className="flex w-[320px] mt-[50px] flex-row gap-[10px]">
-              <button className="w-[284px]  bg-[#0E1422] text-white rounded-[4px] text-center px-[24px] py-[12px]">
-                Add to cart
-              </button>
+              <Link to="/Cart">
+                <button
+                  onClick={selectForCart}
+                  className="w-[284px]  bg-[#0E1422] text-white rounded-[4px] text-center px-[24px] py-[12px]"
+                >
+                  Add to cart
+                </button>
+              </Link>
+
               <img src="/Whishlist.png" alt="" />
             </div>
             <p className="text-[#5C5F6A] text-[12px] mt-[15px]">
