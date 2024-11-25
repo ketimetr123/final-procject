@@ -59,7 +59,7 @@ const Products = () => {
       body: JSON.stringify({
         userId: 5,
         date: 2020 - 11 - 19,
-        products: [{ productId: 5, quantity: 1 }],
+        products: [{ productId: id, quantity: 1 }],
       }),
     })
       .then((res) => res.json())

@@ -4,23 +4,51 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../redux/store";
-import { increment, decrement } from "../redux/app/counterSlice";
+import counterSlice, { increment, decrement } from "../redux/app/counterSlice";
 import { Link } from "react-router-dom";
 import { deleteToke } from "../hooks/logout";
 import ProductCard from "../components/ProductCard";
 
 const Cart = () => {
-  const count = useSelector((state: RootState) => state.counter.value);
-  const dispatch = useDispatch();
+  // const count = useSelector((state: RootState) => state.counter.value);
+  // const dispatch = useDispatch();
   const [products, setProducts] = useState<any[]>([]);
   const [products1, setProduct1] = useState<any[]>([]);
+
   // const [isLoading, setIsLoading] = useState<boolean>(false);
+  // const [count, setState] = useState(0);
+  // const increment = () => {
+  //   setState(prevCount){
+
+  //   }
+  // };
+
+  const [counter, setCounter] = useState(0);
+
+  const incrementCounter = (id: number) => {
+    setProducts((prevProducts) =>
+      prevProducts.map((product) =>
+        product.id === id
+          ? { ...product, counter: product.counter + 1 }
+          : product
+      )
+    );
+  };
+
+  const decrementCounter = (id: number) => {
+    setProducts((prevProducts) =>
+      prevProducts.map((product) =>
+        product.id === id && product.counter > 0
+          ? { ...product, counter: product.counter - 1 }
+          : product
+      )
+    );
+  };
+
   const getAllProductsAndUserCaer = async () => {
     try {
-      //fetch products
       const products_res = await fetch("https://fakestoreapi.com/products");
       const products_data = await products_res.json();
-      //fetch user cart
       const cart_res = await fetch("https://fakestoreapi.com/carts/3");
       const cart_products = await cart_res.json();
       let cart_products_data: any[] = [];
@@ -28,7 +56,7 @@ const Cart = () => {
         const element = cart_products.products[index];
         products_data.find((product: any) => {
           if (product.id === element.productId) {
-            cart_products_data.push(product);
+            cart_products_data.push({ ...product, counter: 0 }); // Add counter property
           }
         });
       }
@@ -118,17 +146,17 @@ const Cart = () => {
                     <button
                       className="text-[14px] text-[#202533]"
                       aria-label="Increment value"
-                      onClick={() => dispatch(increment())}
+                      onClick={() => decrementCounter(product.id)}
                     >
-                      <img src="/Add.png" alt="" />
+                      <img src="/plus.png" alt="" />
                     </button>
-                    <span>{count}</span>
+                    <span>{product.counter}</span>
                     <button
                       className="text-[14px] text-[#202533]"
                       aria-label="Decrement value"
-                      onClick={() => dispatch(decrement())}
+                      onClick={() => incrementCounter(product.id)}
                     >
-                      <img src="/plus.png" alt="" />
+                      <img src="/Add.png" alt="" />
                     </button>
                   </div>
                 </div>
