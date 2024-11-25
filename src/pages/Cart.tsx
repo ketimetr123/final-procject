@@ -56,14 +56,21 @@ const Cart = () => {
         const element = cart_products.products[index];
         products_data.find((product: any) => {
           if (product.id === element.productId) {
-            cart_products_data.push({ ...product, counter: 0 }); // Add counter property
+            cart_products_data.push({ ...product, counter: 0 });
           }
         });
       }
+
       setProducts(cart_products_data);
     } catch (error) {
       console.log(error);
     }
+  };
+
+  const calculateTotalPrice = () => {
+    return products.reduce((total, product) => {
+      return total + product.price * product.counter;
+    }, 0);
   };
   useEffect(() => {
     getAllProductsAndUserCaer();
@@ -187,7 +194,7 @@ const Cart = () => {
           <div className="w-full bg-[#E6E7E8] h-[1px] mx-auto"></div>
           <div className="flex flex-row justify-between">
             <span>Total</span>
-            <span>$100.00</span>
+            <span>${calculateTotalPrice().toFixed(2)}</span>
           </div>
           <Link to="/Checkout">
             {" "}

@@ -77,8 +77,8 @@ const Header: any = () => {
             ))}
           </MenuItems>
 
-          <Link to="/About">Contact</Link>
           <Link to="/About">About</Link>
+          <Link to="/Contact">Contact</Link>
         </Menu>
       </div>
       <form onSubmit={SearchListing} className="relative">

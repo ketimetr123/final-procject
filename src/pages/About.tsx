@@ -8,8 +8,8 @@ const About = () => {
       <Discount />
       <Header />
       <div className="grid h-[700px] grid-cols-2">
-        <div className="bg-[#ebebd6] text-[150px] font-[100] text-center ">
-          <p className="rotate-90 ">About us </p>
+        <div className="bg-[#ebebd6] text-[150px] f font-[100] text-center ">
+          <p className="rotate-90 lex justify-center mt-[30%] ">About us </p>
         </div>
         <div className="bg-[#d1dde8] flex flex-col justify-center items-center p-[10px] text-[#4c8183] leading-loose">
           <h2 className="text-[30px] font-[900]">Welcome!</h2>

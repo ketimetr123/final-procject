@@ -67,7 +67,7 @@ const Tshirts2 = () => {
             key={item.id}
             className="bg-[#F6F6F6] py-[10px] px-[15px] h-[500px] rounded-xl flex flex-col justify-between"
           >
-            <Link to="/Products">
+            <Link to={`/Products/${item.id}`}>
               <img src={item.image} className="mx-auto h-[293px]" alt="" />
             </Link>
 
